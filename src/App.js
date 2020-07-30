@@ -10,11 +10,14 @@ import {Container} from 'react-bootstrap';
 //Sub pages:
 import Home from './Home';
 import About from './About';
+import GetCategoryId from './Category';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
+  useParams
 } from "react-router-dom";
 
 function App() {
@@ -29,6 +32,9 @@ function App() {
           <Switch>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/categories/:id">
+              <GetCategoryId />
             </Route>
             <Route path="/">
               <Home />

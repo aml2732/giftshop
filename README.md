@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Development:
 For local development:
+- `npm install` - install dependencies
 - `npm run build` - build files to host (the webpages)
 - `node server` - (start the server (endpoints) and host the webpages)
 - `http://localhost:5000/` - view this link in browser
