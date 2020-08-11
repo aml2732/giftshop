@@ -12,9 +12,13 @@ const getPort = (port) => {return parseInt(port);}
 const PORT = getPort(process.env.PORT || 5000)
 
 //Setup Database connection Pool
+console.log(`Database_url: ${process.env.DATABASE_URL}`)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
+})
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
 })
 
 
