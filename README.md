@@ -31,6 +31,10 @@ Local Development:
 - `DATABASE_URL=<your creds here> node server` - (start the server (endpoints) and host the webpages)
 - `http://localhost:5000/` - view this link in browser
 
+Populating your database:
+- `DATABASE_URL=<your creds here> node dev-tools/drop-all-dbs.js` - Drop all databases
+- `DATABASE_URL=<your creds here> node dev-tools/populate-category.js` - Create Category Table and insert 4 basic rows.
+
 For Heroku deployment: (Manual)
 - `git push heroku master`
 - `heroku open` - open the deployed application
