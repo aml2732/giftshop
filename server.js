@@ -1,6 +1,9 @@
+const process = require('process');
 const {createServer} = require('http');
 const express = require('express');
 const path = require('path');
+const { Pool, Client } = require('pg');
+
 //const fs = require('fs');
 
 //Base path / port for react app independant of local vs prod build.
@@ -8,9 +11,12 @@ const basePath =  path.resolve(__dirname, 'build'); //fs.existsSync(path.resolve
 const getPort = (port) => {return parseInt(port);}
 const PORT = getPort(process.env.PORT || 5000)
 
-console.log('basePath: ');
-console.log(basePath)
-console.log(path.resolve(basePath, 'index.html'))
+//Setup Database connection Pool
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+})
+
 
 const app = express();
 app.use(express.static(basePath));
@@ -24,3 +30,10 @@ server.listen(PORT, err =>{
   if(err) {throw err};
   console.log('Server started!')
 })
+
+// Handle node graceful closure of all processes
+process.on('SIGINT', () => {
+  console.log('(Ctrl-C) Shutdown signal received.');
+  pool.end();
+  process.exit(1);
+});
