@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  - create react app (installed as a global (`-g`) dependency)
 
 ## Development:
-First time setup:
+### First time setup:
 - `npm install` - install dependencies
 - `npm run build` - build files to host (the webpages)
 - `heroku create --buildpack mars/create-react-app` to create heroku github remote (https://github.com/mars/create-react-app-buildpack)
@@ -25,17 +25,17 @@ First time setup:
 - `DATABASE_URL=<your creds here> node server` - (start the server (endpoints) and host the webpages)
 - `http://localhost:5000/` - view this link in browser
 
-Local Development:
+### Local Development:
 - `npm install` - install dependencies
 - `npm run build` - build files to host (the webpages)
 - `DATABASE_URL=<your creds here> node server` - (start the server (endpoints) and host the webpages)
 - `http://localhost:5000/` - view this link in browser
 
-Populating your database:
+### Populating your database:
 - `DATABASE_URL=<your creds here> node dev-tools/drop-all-dbs.js` - Drop all databases
 - `DATABASE_URL=<your creds here> node dev-tools/populate-category.js` - Create Category Table and insert 4 basic rows.
 
-For Heroku deployment: (Manual)
+### For Heroku deployment: (Manual)
 - `git push heroku master`
 - `heroku open` - open the deployed application
 
